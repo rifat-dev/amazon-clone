@@ -1,0 +1,16 @@
+.product__rating {
+    display: flex;
+}
+
+.card {
+    margin: 10px;
+}
+
+#img {
+    max-height: 200px;
+    width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    margin-bottom: 15px;
+    margin-top: 4px;
+}
