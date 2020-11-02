@@ -39,7 +39,10 @@ const App = () => {
       <BrowserRouter>
         <Hader />
         <Switch>
-          <Route exact path='/' >
+        <Route exact path="/">
+            <LogIn />
+          </Route>
+          <Route exact path='/home' >
             <Home />
           </Route>
           <Route path="/login">

@@ -3,15 +3,17 @@ import './hader.css';
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "../pages/components/StateProvider";
-import { Link } from 'react-router-dom'
+import { Link,useHistory } from 'react-router-dom'
 import { auth } from '../pages/components/fairbase'
 
 const Hader = () => {
+    const history = useHistory();
     const [{ basket, user }, dispatch] = useStateValue();
 
     const handleAuthenticaton = () => {
         if (user) {
             auth.signOut();
+            history.push('/login');
         }
     }
 
@@ -19,7 +21,7 @@ const Hader = () => {
     return (
         <div className="header">
 
-            <Link to="/">
+            <Link to={!user ? "/" : "/home"}>
                 <img
                     className="header__logo"
                     src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -36,7 +38,7 @@ const Hader = () => {
 
 
 
-                <Link to={!user && '/login'}>
+                <Link to={!user && "/login"}>
                     <div onClick={handleAuthenticaton} className="header__option">
                         <span className="header__optionLineOne">Hello {!user ? 'Guest' : user.email}</span>
                         <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>

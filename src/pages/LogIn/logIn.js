@@ -17,7 +17,7 @@ const LogIn = () => {
             .signInWithEmailAndPassword(email, password)
             .then((auth) => {
                 if(auth){
-                    history.push('/')
+                    history.push('/home')
                 }
             })
             .catch(error => alert(error.message))
@@ -32,7 +32,7 @@ const LogIn = () => {
             .then((auth) => {
                 // it successfully created a new user with email and password
                 if (auth) {
-                    history.push('/')
+                    history.push('/home')
                 }
             })
             .catch(error => alert(error.message))
